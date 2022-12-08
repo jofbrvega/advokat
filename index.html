@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <title>Per Nyberg</title>
+</head>
+
+<body class="font-serif w-4/5 flex flex-col justify-center text-center mx-auto">
+    <section class="border-2 flex flex-col justify-center h-[70vh]">
+        <div class="flex justify-center">
+            <div class="justify-center flex">
+                <img src="/assets/img/per.jpg" alt="per-nyberg" class="rounded-full lg:rounded-none w-44 h-44 lg:w-[400px] lg:h-[380px] object-cover">
+            </div>
+        </div>
+        <div class="flex justify-center text-center flex-col">
+            <div class="text-3xl">Per Nyberg</div>
+            <div class="text-xl">Advokat</div>
+        </div>
+    </section>
+
+    <section class="py-8 bg-gray-200">
+        <div class="px-4 flex text-left lg:justify-center lg:text-center leading-relaxed lg:text-xl">
+            <p class="lg:w-96">
+                Per has been working in private practice for more than 30 years and
+                his current practice includes arbitration, corporate law, M&amp;A
+                andfinancial regulations.
+            </p>
+        </div>
+    </section>
+
+    <section class="flex flex-col py-8 grid grid-rows-4 grid-flow-col gap-20 text-center justify-center mx-auto">
+
+        <div class="flex gap-20 align-center group" x-data="{ open: false }">
+            <button @click="open = ! open" class="flex gap-6 self-center">
+                <img src="/assets/img/email.png" alt="" class="h-20 w-20 hover:opacity-25">
+                <div class="self-center">Email</div>
+            </button>
+                <div x-show="open" x-transition="" @click.outside="open = false" class="flex flex-col text-left gap-4"
+                    style="display: none;">
+                    <a href="mailto:per@pnyberg.se" class="flex gap-6 hover:underline">
+                        <div class="self-center">Email</div>
+                    </a>
+                    <a href="https://teams.microsoft.com/l/chat/0/0?users=per@pnyberg.se" class="hover:underline">
+                        <div>Teams</div>
+                    </a>
+                    <a href="" class="hover:underline">
+                        <div>Copy email</div>
+                    </a>
+                </div>
+
+            <div class="flex gap-20 align-center group" x-data="{ open: false }">
+                    <button @click="open = ! open" class="flex gap-6">
+                        <img src="/assets/img/phone-call.png" alt="" class="h-20 w-20 hover:opacity-25">
+                        <div class="self-center">Phone</div>
+                    </button>
+                    <div x-show="open" x-transition="" @click.outside="open = false" class="flex flex-col text-left gap-4 self-center">
+                        <a href="tel:+46722326620" class="flex gap-6">
+                            <div class="hover:underline">Ring</div>
+                        </a>
+                        <a href="callto:+46722326620">
+                            <div>Zoom/Teams/Skype</div>
+                        </a>
+                        <a href="sms:+46722326620">
+                            <div>Sms</div>
+                        </a>
+                    </div>
+            </div>
+
+            <div class="flex gap-20 align-center group" x-data="{ open: false }">
+                    <button class="flex gap-6 self-center" @click="open = ! open">
+                        <img src="/assets/img/writing.png" alt="" class="h-20 w-20 hover:opacity-25">
+                        <div class="self-center">Curricilum Vitae</div>
+                    </button>
+                    <div x-show="open" x-transition @click.outside="open = false" class="hover:underline self-center">
+                        <a href="/curriculum.html" class="flex gap-6">
+                            <div class="hover:underline">CV</div>
+                        </a>
+                    </div>
+
+            </div>
+        </div>
+</body>
+</html>
