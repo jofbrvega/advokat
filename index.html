@@ -7,14 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
+    <script>
+        function copyText() {
+            navigator.clipboard.writeText("per@pnyberg.se");
+            alert("Email is copied!");
+        };
+        function copyNumber() {
+            navigator.clipboard.writeText
+                ("+46722326620");
+            alert("Number is copied!");
+        }
+    </script>
+    <style>
+        [x-cloak] {
+            display: none;
+        }
+    </style>
     <title>Per Nyberg</title>
 </head>
 
-<body class="font-serif w-4/5 flex flex-col justify-center text-center mx-auto">
-    <section class="border-2 flex flex-col justify-center h-[70vh]" style="background-image: url('/assets/img/jon.jpg'); background-size: cover;">
+<body class="font-serif lg:w-4/5 flex flex-col justify-center text-center mx-auto">
+    <section class="border-2 flex flex-col justify-center h-[70vh]"
+        style="background-image: url('/assets/img/jon.jpg'); background-size: cover;">
         <div class="flex justify-center">
             <div class="justify-center flex">
-                <img src="/assets/img/per.jpg" alt="per-nyberg" class="rounded-full lg:rounded-none w-44 h-44 lg:w-[400px] lg:h-[380px] object-cover">
+                <img src="/assets/img/per.jpg" alt="per-nyberg"
+                    class="rounded-full lg:rounded-none w-44 h-44 lg:w-[400px] lg:h-[380px] object-cover">
             </div>
         </div>
         <div class="flex justify-center text-center flex-col text-white">
@@ -33,56 +51,76 @@
         </div>
     </section>
 
-    <section class="flex flex-col py-8 grid grid-rows-4 grid-flow-col gap-20 text-center justify-center mx-auto">
+    <section class="flex justify-center py-8">
+        <div class="flex flex-col gap-20 group">
 
-        <div class="flex gap-20 align-center group" x-data="{ open: false }">
-            <button @click="open = ! open" class="flex gap-6 self-center">
-                <img src="/assets/img/email.png" alt="" class="h-20 w-20 hover:opacity-25">
-                <div class="self-center">Email</div>
-            </button>
-                <div x-show="open" x-transition="" @click.outside="open = false" class="flex flex-col text-left gap-4"
-                    style="display: none;">
+            <div class="flex group relative gap-2" x-data="{ open: false }">
+                <div>
+                    <button x-on:click="open = !open" class="flex self-center gap-6">
+                        <img src="/assets/img/email.png" alt="" class="h-10 w-10 lg:h-20 lg:w-20 hover:opacity-25">
+                        <div class="self-center">Email</div>
+                    </button>
+                </div>
+                <div x-show="open" x-cloak x-transition @click.outside="open = false"
+                    class="flex text-left absolute left-full bg-gray-100 p-6 gap-2">
                     <a href="mailto:per@pnyberg.se" class="flex gap-6 hover:underline">
                         <div class="self-center">Email</div>
                     </a>
                     <a href="https://teams.microsoft.com/l/chat/0/0?users=per@pnyberg.se" class="hover:underline">
                         <div>Teams</div>
                     </a>
-                    <a href="" class="hover:underline">
-                        <div>Copy email</div>
-                    </a>
+                    <button onclick="copyText()" class="text-left hover:underline whitespace-nowrap">
+                        <div id="myInput"> Copy email </div>
+                    </button>
                 </div>
-
-            <div class="flex gap-20 align-center group" x-data="{ open: false }">
-                    <button @click="open = ! open" class="flex gap-6">
-                        <img src="/assets/img/phone-call.png" alt="" class="h-20 w-20 hover:opacity-25">
-                        <div class="self-center">Phone</div>
-                    </button>
-                    <div x-show="open" x-transition="" @click.outside="open = false" class="flex flex-col text-left gap-4 self-center">
-                        <a href="tel:+46722326620" class="flex gap-6">
-                            <div class="hover:underline">Ring</div>
-                        </a>
-                        <a href="callto:+46722326620">
-                            <div>Zoom/Teams/Skype</div>
-                        </a>
-                        <a href="sms:+46722326620">
-                            <div>Sms</div>
-                        </a>
-                    </div>
             </div>
-
-            <div class="flex gap-20 align-center group" x-data="{ open: false }">
-                    <button class="flex gap-6 self-center" @click="open = ! open">
-                        <img src="/assets/img/writing.png" alt="" class="h-20 w-20 hover:opacity-25">
-                        <div class="self-center">Curricilum Vitae</div>
-                    </button>
-                    <div x-show="open" x-transition @click.outside="open = false" class="hover:underline self-center">
-                        <a href="/curriculum.html" class="flex gap-6">
-                            <div class="hover:underline">CV</div>
+            <div>
+                <div class="flex group relative gap-2" x-data="{ open: false }">
+                    <div>
+                        <button x-on:click="open = !open" class="flex self-center gap-6">
+                            <img src="/assets/img/phone-call.png" alt=""
+                                class="h-10 w-10 lg:h-20 lg:w-20 hover:opacity-25">
+                            <div class="self-center">Phone</div>
+                        </button>
+                    </div>
+                    <div class="flex justify-start">
+                        <div x-show="open" x-cloak x-transition @click.outside="open = false"
+                            class="flex align-center text-left absolute left-full bg-gray-100 p-6 gap-2">
+                            <a href=" tel:+46722326620" class="flex gap-6 hover:underline">
+                                <div class="hover:underline">Ring</div>
+                            </a>
+                            <a href="callto:+46722326620" class="hover:underline">
+                                <div>Teams</div>
+                            </a>
+                            <a href="sms:+46722326620">
+                                Sms
+                            </a>
+                            <button onclick="copyNumber()" class="text-left hover:underline whitespace-nowrap">
+                                <div> Copy Number </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="flex group relative gap-2" x-data="{ open: false }">
+                    <div>
+                        <button x-on:click="open = !open" class="flex self-center gap-6">
+                            <img src="/assets/img/writing.png" alt=""
+                                class="h-10 w-10 lg:h-20 lg:w-20 hover:opacity-25">
+                            <div class="self-center">CV</div>
+                        </button>
+                    </div>
+                    <div x-show="open" x-cloak x-transition @click.outside="open = false"
+                        class="flex flex-col text-left absolute left-full bg-gray-100 p-6 gap-2">
+                        <a href=" /curriculum.html" class="flex gap-6">
+                            <div class="hover:underline whitespace-nowrap">Curricilum Vitae</div>
                         </a>
                     </div>
-
+                </div>
             </div>
         </div>
+    </section>
 </body>
+
 </html>
