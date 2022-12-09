@@ -62,7 +62,7 @@
                     </button>
                 </div>
                 <div x-show="open" x-cloak x-transition @click.outside="open = false"
-                    class="flex text-left absolute left-full bg-gray-100 p-6 gap-2">
+                    class="flex flex-col py-2 text-left absolute inset-x-0 bg-gray-100 lg:left-full lg:p-6 gap-2">
                     <a href="mailto:per@pnyberg.se" class="flex gap-6 hover:underline">
                         <div class="self-center">Email</div>
                     </a>
@@ -85,7 +85,7 @@
                     </div>
                     <div class="flex justify-start">
                         <div x-show="open" x-cloak x-transition @click.outside="open = false"
-                            class="flex align-center text-left absolute left-full bg-gray-100 p-6 gap-2">
+                            class="flex flex-col h-100 text-left absolute inset-x-0 bg-gray-100 lg:left-full lg:p-6 gap-2">
                             <a href=" tel:+46722326620" class="flex gap-6 hover:underline">
                                 <div class="hover:underline">Ring</div>
                             </a>
@@ -112,7 +112,7 @@
                         </button>
                     </div>
                     <div x-show="open" x-cloak x-transition @click.outside="open = false"
-                        class="flex flex-col text-left absolute left-full bg-gray-100 p-6 gap-2">
+                        class="flex flex-col py-2 text-left absolute inset-0 bg-gray-100 lg:left-full lg:p-6 gap-2">
                         <a href=" /curriculum.html" class="flex gap-6">
                             <div class="hover:underline whitespace-nowrap">Curricilum Vitae</div>
                         </a>
